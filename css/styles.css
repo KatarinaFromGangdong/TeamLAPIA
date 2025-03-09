@@ -409,7 +409,8 @@ html {
     height: 160px;
     padding: 5px;
     margin: 10px;
-    background: #BEBFC1;
+    /* background: #BEBFC1; */
+    background: #fcb913;
     border-radius: 50%;
     transition: all 250ms;
 }
