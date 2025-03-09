@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamLapia Dashboard</title>
+
+    <!-- icon in tab -->
+    <link rel="shortcut icon" type="x-icon" href="media/fish-logo-v1.png">
+
+    <!--custom font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap" rel="stylesheet">
+
+    <!--material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <!--insert custom css-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- apex chart link -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
+    <!-- lord icon -->
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+
+</head>
+<body>
+    <div class="grid-container">
+        <!--header-->
+        <header id="header" class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <i class="fa-solid fa-fish-fins"></i>
+                <h4>TeamLapia</h4>
+            </div>
+            <div class="header-right">
+                <a href="#profiles">
+                    <button>
+                        About us
+                    </button>
+                </a>
+            </div>
+        </header>
+        <!--end header-->
+
+        <!--side bar-->
+        <!-- <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">
+                        engineering
+                        </span> TeamLapia
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">
+                    close
+                    </span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <span class="material-icons-outlined">
+                        dashboard
+                        </span> Dashboard
+                </li>
+                <li class="sidebar-list-item">
+                    <span class="material-icons-outlined">
+                        analytics
+                        </span> Analytics
+                </li>
+            </ul>
+        </aside> -->
+        <!--end sidebar-->
+
+        <!--main-->
+        <main class="main-container">
+            <div class="main title">
+                <h2>DASHBOARD</h2>
+            </div>
+            <div class="main-cards">
+
+                <!-- ph sensor -->
+                <div class="card">
+                    <div class="card-inner">
+                        <span class="material-icons-outlined">
+                            troubleshoot
+                            </span>
+                        <div class="ph_title"><a class="ph-card-href" href="#ph-card-title">pH</a></div>
+                        <!-- <ul id="">
+                            <li><a href="#ph_chart_title">pH</a></li>
+                        </ul> -->
+                    </div>
+                    <div class="ph_number_generator">
+                        <span id="ph_number">0</span>
+                    </div>
+                </div>
+                
+                <!-- Dissolved oxygen -->
+                <div class="card">
+                    <div class="card-inner">
+                        <!-- <h3>Dissolved Oxygen</h3> -->
+                        <span class="material-icons-outlined">
+                            blur_circular
+                            </span>
+                        <div class="do_title"><a class="do-card-href" href="#do-card-title">Dissolved Oxygen</a></div>
+                    </div>
+                    <div class="do_number_generator">
+                        <span id="do_number">0</span> mg/L
+                    </div>
+                </div>
+
+                <!-- temperature -->
+                <div class="card">
+                    <div class="card-inner">
+                        <!-- <h3>Temperature</h3> -->
+                        <span class="material-icons-outlined">
+                            thermostat
+                            </span>
+                        <div class="temp_title"><a class="temp-card-href" href="#temp-card-title">Temperature</a></div>
+                    </div>
+                    <!-- <h1> -- &deg;C</h1> -->
+                    <div class="temp_number_generator">
+                        <span id="temp_number">0</span> &deg;C
+                    </div>
+                </div>
+
+                <!-- turbidity -->
+                <div class="card">
+                    <div class="card-inner">
+                        <!-- <h3>Turbidity</h3> -->
+                        <span class="material-icons-outlined">
+                            science
+                            </span>
+                        <div class="tur_title"><a class="turb-card-href" href="#turb-card-title">Turbidity</a></div>
+                    </div>
+                    <div class="turb_number_generator">
+                        <span id="turb_number">0</span> NTU
+                    </div>
+                </div>
+            </div>
+<!-- CHARTS / GRAPHS -->
+            <div class="charts">
+
+                <!-- ph chart -->
+                <div id="ph-card-title" class="charts-card">
+                    <h2 class="chart-title"><a class="ph-chart-href" href="#header">pH Level</a></h2>
+                    <canvas id="sample1_chart"></canvas>
+                </div>
+
+                <!-- do chart -->
+                <div id="do-card-title" class="charts-card">
+                    <h2 class="chart-title"><a class="do-chart-href" href="#header">Dissolved Oxygen Level</a></h2>
+                    <canvas id="sample2_chart"></canvas>
+                </div>
+
+                <!-- temp chart -->
+                <div id="temp-card-title" class="charts-card">
+                    <h2 class="chart-title"><a class="temp-chart-href" href="#header">Temperature Level</a></h2>
+                    <canvas id="sample3_chart"></canvas>
+                </div>
+
+                <!-- turbidity chart -->
+                <div id="turb-card-title" class="charts-card">
+                    <h2 class="chart-title"><a class="turb-chart-href" href="#header">Turbidity Level</a></h2>
+                    <canvas id="sample4_chart"></canvas>
+                </div>
+            </div>
+        </main>
+        <!--end main-->
+        <!-- creators information -->
+        
+        <div class="back-btn">
+            <a href="#header"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </div>
+<footer>
+    <div class="creator-info">
+        <div id="profiles" class="creator-card">
+            <div class="creator-content">
+                <div class="creator-img">
+                    <img src="media/amurao-profile-v2.jpg" alt="">
+                </div>
+                <div class="creator-content-box">
+                    <h4>Jan Ryan Christian A. Amurao</h4>
+                    <h5>Researcher</h5>
+                    <h6>Lead Programmer, Hardware and Assembly, Testing and Calibration
+                        Circuit and Electronic Construction
+                    </h6>
+                    <div class="creator-social">
+                        <a href="https://www.facebook.com/janryanchristian.amurao/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aamuyan/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profiles" class="creator-card">
+            <div class="creator-content">
+                <div class="creator-img">
+                    <img src="media/arche-profile-v2.jpg" alt="">
+                </div>
+                <div class="creator-content-box">
+                    <h4>Jillien L. Arche</h4>
+                    <h5>Researcher</h5>
+                    <h6>Documentation, Testing and Calibration</h6>
+                    <div class="creator-social">
+                        <a href="https://www.facebook.com/jillien.arche/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/_jillienarche/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profiles" class="creator-card">
+            <div class="creator-content">
+                <div class="creator-img">
+                    <img src="media/bayeta-profile-v2.jpg" alt="">
+                </div>
+                <div class="creator-content-box">
+                    <h4>Jervin L. Bayeta</h4>
+                    <h5>Researcher</h5>
+                    <h6>Hardware and Assembly, Testing and Calibration</h6>
+                    <div class="creator-social">
+                        <a href="https://www.facebook.com/jervin.bayeta" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/jrvn.b/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profiles" class="creator-card">
+            <div class="creator-content">
+                <div class="creator-img">
+                    <img src="media/ebron-profile-v2.jpg" alt="">
+                </div>
+                <div class="creator-content-box">
+                    <h4>Samuel P. Ebron</h4>
+                    <h5>Researcher</h5>
+                    <h6>Hardware and Assembly, Testing and Calibration</h6>
+                    <div class="creator-social">
+                        <a href="https://www.facebook.com/SaaamEbron" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/samebron/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profiles" class="creator-card">
+            <div class="creator-content">
+                <div class="creator-img">
+                    <img src="media/gaudencio-profile-v2.jpg" alt="">
+                </div>
+                <div class="creator-content-box">
+                    <h4>Julius C. Gaudencio</h4>
+                    <h5>Researcher</h5>
+                    <h6>Hardware and Assembly, Testing and Calibration</h6>
+                    <div class="creator-social">
+                        <a href="https://www.facebook.com/juliusgaudencio019" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/juliusgaudencio/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Scripts -->
+    <!-- chart js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <script src="js/ph_chart.js"></script>
+    <script src="js/do_chart.js"></script>
+    <script src="js/temp_chart.js"></script>
+    <script src="js/turb_chart.js"></script>
+    <!-- apex chart -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!--custom JS-->
+    <script> scr="js/scripts.js"</script>
+</body>
+</html>
